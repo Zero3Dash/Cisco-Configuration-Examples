@@ -1,0 +1,32 @@
+!-----------------------------------------------------------------
+!IOS Router Configuration (15.x or higher)
+!-----------------------------------------------------------------
+!
+interface tunnel [[tunnel-id]]
+ tunnel source [[source-ip-or-interface]]
+ tunnel destination [[destination-ip]]
+ ip address [[layer-3-tunnel-ip-address]] [[layer-3-tunnel-subnet-mask]]
+end
+!
+crypto isakmp policy [[IKEv1-id]]
+ encryption aes 256
+ hash sha256
+ authentication pre-share
+ group 19
+ lifetime 86400
+end
+!
+crypto isakmp key [[pre-shared-key]] address [[destination-ip]]
+!
+crypto ipsec transform-set tunnel-[[tunnel-id]]-ts esp-aes esp-sha256-hmac
+ mode transport
+end
+!
+crypto ipsec profile tunnel-[[tunnel-id]]-ipsec
+ set security-association lifetime seconds 86400
+ set transform-set tunnel-[[tunnel-id]]-ts
+!
+interface Tunnel [[tunnel-id]]
+ tunnel protection ipsec profile tunnel-[[tunnel-id]]-ipsec
+ ip address [[layer-3-tunnel-ip-address]] [[layer-3-tunnel-subnet-mask]]
+!

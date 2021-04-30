@@ -1,0 +1,8 @@
+!
+dhcpd address [[START-IP-ADDRESS]]-[[END-IP-ADDRESS]] [[INTERFACE-NAME]]
+dhcpd dns [[DNS-SERVER-1]] [[DNS-SERVER-2]] interface [[INTERFACE-NAME]]
+dhcpd lease 14400 interface [[INTERFACE-NAME]]
+dhcpd domain [[DOMAIN-NAME]] interface [[INTERFACE-NAME]]
+dhcpd option 3 ip [[GATEWAY-IP-ADDRESS]] interface [[INTERFACE-NAME]]
+dhcpd enable [[INTERFACE-NAME]]
+!

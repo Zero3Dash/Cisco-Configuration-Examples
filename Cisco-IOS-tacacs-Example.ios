@@ -1,0 +1,23 @@
+!------------------------------------------
+! -- TACACs Authentication Settings
+!------------------------------------------
+!
+username [[Local User]] secret [[Local Password]]
+!
+enable secret [[Enable Secret]]
+!
+aaa new-model
+!
+aaa authentication login default group tacacs+ local
+aaa authorization exec default group tacacs+ if-authenticated
+aaa accounting exec default start-stop group tacacs+
+aaa accounting commands 15 default start-stop group tacacs+
+aaa accounting network default start-stop group tacacs+
+!
+tacacs server [[TACACs Server Name]]
+ address ipv4 [[TACACs Server IP]]
+ key [[TACACs Key]]
+ timeout 3
+!
+service password-encryption
+!

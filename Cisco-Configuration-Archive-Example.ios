@@ -1,0 +1,12 @@
+!
+archive 
+log config 
+  logging enable 
+  logging size 500 
+  notify syslog contenttype plaintext 
+  hidekeys 
+path flash:archived-config 
+maximum 14 
+write-memory 
+time-period 1440 
+!

@@ -2,20 +2,17 @@
 ! Cisco IOS Router Basic NAT with Overload
 !-----------------------------------------------------------------
 !
-en
-conf t
-!
 interface [[OUTSIDE-INTERFACE]]
  ip nat outside
 !
 interface [[INSIDE-INTERFACE]]
  ip nat inside
 !
+!-- using a standard ACL
 access-list 100 remark acl.nat-outbound
 access-list 100 permit ip [[ALLOWED-NETWORK-IP]] [[WILDCARD-SUBNET-MASK]] any
+!-- add addition permits for addition networks
+!
 !
 ip nat inside source list 100 interface [[OUTSIDE-INTERFACE]] overload
-!
-end
-wr
 !

@@ -2,6 +2,7 @@
 ! Cisco Configuration archive Example
 ! Log configuration changes to local flash and keep for upto 14 days
 ! Passwords/Keys with not be recorded
+! also will push to syslog and local logging buffer
 !--------------------------------------------------------------------------
 !
 archive 

@@ -1,5 +1,6 @@
 !-----------------------------------------------------------------
 ! IOS Router Configuration (15.x or higher)
+! This will need to done on both routers
 !-----------------------------------------------------------------
 !
 interface tunnel [[tunnel-id]]

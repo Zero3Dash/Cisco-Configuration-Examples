@@ -1,6 +1,6 @@
 
 !------------------------------------------------
-!-- Encryption for each device
+!-- Encryption configuration for each device
 !------------------------------------------------
 !
 crypto ikev2 keyring cisco-ikev2-keyring

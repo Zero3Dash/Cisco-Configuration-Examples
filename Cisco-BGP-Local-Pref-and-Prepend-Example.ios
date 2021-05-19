@@ -17,7 +17,7 @@ router bgp [[BGP-ASN-ID]]
  exit-address-family 
 ! 
 !--- default local pref is 100 
-!--- higher the metric the more preferred route 
+!--- higher the metric the more preferred the route 
 !--- to be applied on the inbound 
 route-map rm.[[ROUTE-MAP]]-locpref permit 5 
  set local-preference [[LOCAL PREF METRIC]]

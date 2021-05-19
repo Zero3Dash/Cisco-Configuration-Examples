@@ -27,6 +27,9 @@ aaa group server radius RADIUS-SERVERS
 aaa authentication login AAA_RADIUS group RADIUS-SERVERS local
 aaa authorization exec AAA_RADIUS group RADIUS-SERVERS local
 !
+line console 0
+  login authentication AAA_RADIUS
+!
 line vty 0 15
   login authentication AAA_RADIUS
 !

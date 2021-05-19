@@ -16,7 +16,7 @@ failover link failover GigabitEthernet[[PRI-INTERFACE-FO]]
 !
 !--ipsec encryption between firewalls
 !
-failover ipsec pre-shared-key [[IPSEC-PRE-SHARED-KEY]]
+failover ipsec pre-shared-key [[PRE-SHARED-KEY]]
 !
 !--turn on failover
 failover
@@ -39,7 +39,7 @@ failover link failover GigabitEthernet[[SEC-INTERFACE-FO]]
 !
 !--ipsec encryption between firewalls
 !
-failover ipsec pre-shared-key [[IPSEC-PRE-SHARED-KEY]]
+failover ipsec pre-shared-key [[PRE-SHARED-KEY]]
 !
 !--turn on failover
 failover
@@ -49,6 +49,7 @@ failover
 !################################################################
 !
 !--secondary config lock
+!--prevents configuration on the secondary unit
 !
 failover standby config-lock
 !

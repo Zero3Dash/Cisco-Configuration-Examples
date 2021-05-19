@@ -7,6 +7,7 @@ term page 0
 show version
 more system:running-config
 show access-list
+show nat
 show xlate
 show conn
 !
@@ -61,7 +62,7 @@ show crypto ca trustpoints
 show crypto ca certificates
 !
 !-- Show Tech
-show tech
+show tech-support
 !
 !-- Export Trustpoints
 crypto ca export <trust-point-name> pkcs12 <passphrase>

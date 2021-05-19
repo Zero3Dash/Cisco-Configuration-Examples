@@ -8,12 +8,12 @@
 interface GigabitEthernet1/1 
 nameif outside 
 security-level 0 
-ip address [[PUBLIC-IP-ADDRESS]] [[PUBLIC-IP-ADDRESS-SUBNET-MASK]]
+ip address [[PUBLIC-IP-ADDRESS]] [[PUBLIC-IP-SUBNET-MASK]]
 ! 
 interface BVI1 
 nameif Private 
 security-level 100 
-ip address [[PRIVATE-IP-ADDRESS]] [[PRIVATE-IP-ADDRESS-SUBNET-MASK]]
+ip address [[PRIVATE-IP-ADDRESS]] [[PRIVATE-IP-SUBNET-MASK]]
 ! 
 interface GigabitEthernet1/2 
 bridge-group 1 

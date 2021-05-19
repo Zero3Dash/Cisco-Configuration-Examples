@@ -1,3 +1,14 @@
+!--------------------------------------------------------------------------
+! Cisco ASA Assessment Commands
+!--------------------------------------------------------------------------
+!
+![[START-IP-ADDRESS]]   First IP Address within the DHCP Scope
+![[END-IP-ADDRESS]]     Last IP Address within the DHCP Scope
+![[INTERFACE-NAME]]     Interface within the DHCP Scope specified
+![[DOMAIN-NAME]]        domain/network name (i.e. company.net)
+![[GATEWAY-IP-ADDRESS]] Default Gateway IP Address, (usually the IP Address of the interface)
+![[DNS-SERVER-1]]       Prefered DNS Server
+![[DNS-SERVER-2]]       Secondary DNS Server
 !
 dhcpd address [[START-IP-ADDRESS]]-[[END-IP-ADDRESS]] [[INTERFACE-NAME]]
 dhcpd dns [[DNS-SERVER-1]] [[DNS-SERVER-2]] interface [[INTERFACE-NAME]]

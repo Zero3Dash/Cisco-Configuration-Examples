@@ -55,6 +55,7 @@ tunnel destination [[route-2-ipaddress]]
 tunnel protection ipsec profile [[ipsec-profile-name]] 
 ! 
 !# Create a static route to a remote network over the tunnel interface 
+!# You can use dynamic routing protocols if you prefer
 ! 
 ip route [[r2-network-ip]] [[r2-subnet-mask]] [[tunnel-R2-ipaddress]] 
 ! 
@@ -111,6 +112,7 @@ tunnel destination [[route-1-ipaddress]]
 tunnel protection ipsec profile [[ipsec-profile-name]] 
 ! 
 !# Create a static route to a remote network over the tunnel interface 
+!# You can use dynamic routing protocols if you prefer
 ! 
 ip route [[r1-network-ip]] [[r1-subnet-mask]] [[tunnel-R1-ipaddress]]
 !

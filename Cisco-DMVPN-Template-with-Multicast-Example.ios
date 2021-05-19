@@ -1,6 +1,6 @@
 
 !------------------------------------------------
-!-- Encryption
+!-- Encryption for each device
 !------------------------------------------------
 !
 crypto ikev2 keyring cisco-ikev2-keyring
@@ -120,7 +120,7 @@ router ospf 1
  network [[Spoke Tunnel IP]] 0.0.0.0 area 0
 !
 !------------------------------------------------
-!-- Multicast --!
+!-- Multicast for Voice
 !------------------------------------------------
 !
 interface Loopback0
@@ -131,9 +131,9 @@ interface Loopback0
 interface [[voice-interface]]
  ip pim sparse-mode
 !
-ip access-list standard MCAST-GROUPS
+ip access-list standard acl.mcast-groups
  permit 239.1.0.0 0.0.255.255
 !
 ip pim bsr-candidate Loopback0 24
-ip pim rp-candidate Loopback0 group-list MCAST-GROUPS interval 10
+ip pim rp-candidate Loopback0 group-list acl.mcast-groups interval 10
 !

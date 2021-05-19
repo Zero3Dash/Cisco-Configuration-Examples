@@ -1,7 +1,11 @@
 
--------------------------------------------------- 
-IOS Route 
--------------------------------------------------- 
+!--------------------------------------------------------------------------
+! Cisco NXOS RADUIS Configuration Example with Local Failback
+!--------------------------------------------------------------------------
+!
+!-------------------------------------------------- 
+! IOS Route 
+!-------------------------------------------------- 
 !--- Access-list defining SNMPv3 servers. 
 ip access-list standard permit-snmp-v3 
 permit [[ROUTER-SNMP-SERVER-1]]
@@ -19,9 +23,9 @@ snmp-server user monitoring-server2 gp-snmp.monitoring v3 auth sha [[ROUTER-AUTH
 snmp-server host [[ROUTER-SNMP-SERVER-1]] version 3 priv monitoring-server1 
 snmp-server host [[ROUTER-SNMP-SERVER-2]] version 3 priv monitoring-server2 
 !
--------------------------------------------------- 
-IOS Switch 
--------------------------------------------------- 
+!-------------------------------------------------- 
+! IOS Switch 
+!-------------------------------------------------- 
 !--- Access-list defining SNMPv3 servers. 
 ip access-list standard permit-snmp-v3 
 permit [[SWITCH-SNMP-SERVER-1]]
@@ -39,9 +43,9 @@ snmp-server user monitoring-server2 gp-snmp.monitoring v3 auth sha [[SWITCH-AUTH
 snmp-server host [[SWITCH-SNMP-SERVER-1]] version 3 priv monitoring-server1 
 snmp-server host [[SWITCH-SNMP-SERVER-2]] version 3 priv monitoring-server2
 !
--------------------------------------------------- 
-NXOS 
--------------------------------------------------- 
+!-------------------------------------------------- 
+! NXOS 
+!-------------------------------------------------- 
 !--- User creation with relevant priv and auth protocols. 
 snmp-server user monitoring-server1 auth sha [[NXOS-AUTH-PASSWORD]] priv aes-128 [[NXOS-PRIV-PASSWORD]] localizedkey  
 snmp-server user monitoring-server2 auth sha [[NXOS-AUTH-PASSWORD]] priv aes-128 [[NXOS-PRIV-PASSWORD]] localizedkey   
@@ -53,9 +57,9 @@ snmp-server globalEnforcePriv
 snmp-server user monitoring-server1 network-operator 
 snmp-server user monitoring-server2 network-operator 
 !
--------------------------------------------------- 
-ASA 
--------------------------------------------------- 
+!-------------------------------------------------- 
+! ASA 
+!-------------------------------------------------- 
 !--- New group and user creation 
 snmp-server group gp-snmp.monitoring v3 priv 
 !
@@ -67,9 +71,9 @@ snmp-server user monitoring-server2 gp-snmp.monitoring v3 auth sha [[ASA-AUTH-PA
 snmp-server host [[ASA-SNMP-INTERFACE-NAME]] [[ASA-SNMP-SERVER-1]] version 3 monitoring-server1 
 snmp-server host [[ASA-SNMP-INTERFACE-NAME]] [[ASA-SNMP-SERVER-2]] version 3 monitoring-server2 
 !
--------------------------------------------------- 
-WLC (AireOS)
--------------------------------------------------- 
+!-------------------------------------------------- 
+! WLC (AireOS)
+!-------------------------------------------------- 
 !---Navigate to management > SNMP > General 
 Name:  WLC 
 SNMP v3 Mode: Enable 
@@ -89,3 +93,4 @@ Privay Protocol:  CFB-AES-128
 Priv Password:  [[WLC-PRIV-PASSWORD]]
 !---Apply > Save configuration 
 (Reboot)
+!

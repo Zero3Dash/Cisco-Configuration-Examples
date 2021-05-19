@@ -1,5 +1,5 @@
 !------------------------------------------
-! -- TACACs Authentication Settings
+! IOS TACACS Authentication Settings
 !------------------------------------------
 !
 username [[Local User]] secret [[Local Password]]

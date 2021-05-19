@@ -1,4 +1,7 @@
-
+!--------------------------------------------------------------------------
+! Cisco ASA Assessment Commands
+!--------------------------------------------------------------------------
+!
 !-- General
 term page 0
 show version
@@ -14,12 +17,32 @@ show interfaces
 show failover
 show route
 !
+!-- EIGRP Routing
+!
 show eigrp neighbor
 show eigrp topology
+show route eigrp
+!
+!-- OSPF Routing
 !
 show ospf neighbor
 show ospf database
 show ospf interface
+show route ospf
+!
+!-- BGP Routing
+!
+show bgp neighbors
+show route bgp
+show bgp cidr-only
+show bgp summary
+!
+!-- 9.2 or higher
+show route summary
+!
+!-- ASP Table
+show asp table socket
+show asp table routing
 !
 !-- VPN
 show vpn-sessiondb summary

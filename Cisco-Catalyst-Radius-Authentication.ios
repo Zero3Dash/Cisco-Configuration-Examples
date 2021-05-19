@@ -21,12 +21,15 @@ radius server [[Radius Server Name2]]
  key [[Pre-Shared Key2]]
 !
 aaa group server radius RADIUS-SERVERS
-    server name [[Radius Server Name1]]
-    server name [[Radius Server Name2]]
+ server name [[Radius Server Name1]]
+ server name [[Radius Server Name2]]
 !         
 aaa authentication login AAA_RADIUS group RADIUS-SERVERS local
 aaa authorization exec AAA_RADIUS group RADIUS-SERVERS local
 !
+line con 0
+ login authentication AAA_RADIUS
+!
 line vty 0 15
-  login authentication AAA_RADIUS
+ login authentication AAA_RADIUS
 !

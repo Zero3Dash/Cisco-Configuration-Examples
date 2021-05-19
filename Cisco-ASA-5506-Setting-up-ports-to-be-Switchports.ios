@@ -1,3 +1,9 @@
+!--------------------------------------------------------------------------
+! Configure Cisco ASA 5506 to be used as a switch
+! Single Internet/WAN facing internet
+! Create BVI to internal virtual interface
+! All other ports to be configured as layer 2 switchports
+!--------------------------------------------------------------------------
 !
 interface GigabitEthernet1/1 
 nameif outside 

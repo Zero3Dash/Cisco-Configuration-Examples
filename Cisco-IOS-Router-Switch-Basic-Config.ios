@@ -50,9 +50,10 @@ ip domain-name [[IP-DOMAIN-NAME]]
 crypto key generate rsa modulus [[KEY-SIZE-1024/2048/4096]]
 ip ssh version 2
 username [[DEVICE-USERNAME]] secret [[DEVICE-PASSWORD]]
+!
 line vty 0 4
-transport input ssh
-exit
+ transport input ssh
+ exit
 exit
 wr
 !

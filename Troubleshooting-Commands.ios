@@ -37,16 +37,16 @@ LISP - Underlay Test
 	ping <ip-address> source lo0
 2. Test connectivity to MSMR
 	Control-Panel Unicast:
-		ping <ip-address> source lo0
+		ping <ip-address> source <mgmt-interface>
 	Loopback of dis lay:
-		ping <ip-address> source lo0
+		ping <ip-address> source <mgmt-interface>
 3. Test Connectivity to PxTR
 	Control-Panel Unicast
-		ping <ip-address> source lo0
+		ping <ip-address> source <mgmt-interface>
 	LISP PETR Anycast:
-		ping <ip-address> source lo0
+		ping <ip-address> source <mgmt-interface>
 	Loopback of core lay
-		ping <ip-address> source lo0
+		ping <ip-address> source <mgmt-interface>
 
 LISP - Overlay Test
 1. Find the mapping on xtr using lig command
@@ -84,4 +84,4 @@ Useful Validation Commands - Juniper
 	show route forwarding-table destination <destination-ip>
 6. TAC Support
 	request support information | save /var/tmp/rsi_<device-name>_<date>_<time>.txt
-
+    

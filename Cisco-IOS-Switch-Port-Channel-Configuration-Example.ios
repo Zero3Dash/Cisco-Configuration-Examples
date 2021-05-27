@@ -1,0 +1,39 @@
+!-------------------------------------------------------
+! Cisco IOS Switch Port Channel Configuration Example
+!-------------------------------------------------------
+!
+! Link Aggregation Control Protocol (LACP)
+! Supported Configurations:
+! * SW1 active - SW2 active
+! * SW1 active - SW2 passive
+! * SW1 passive - SW2 active
+!
+! ** to be ran against each interface within the port channel group **
+interface [[interface-name]]
+ channel-group [[port-channel-id]] mode [[lacp-mode]]
+ end
+!
+!
+! Port Aggregation Protocol (PAgP)
+! Supported Configurations:
+! * SW1 desirable - SW2 desirable
+! * SW1 desirable - SW2 auto
+! * SW1 auto - SW2 desirable
+!
+! ** to be ran against each interface within the port channel group **
+interface [[interface-name]]
+ channel-group [[port-channel-id]] mode [[PAgP-mode]]
+ end
+!
+!
+! Manual Etherchannel
+! ** to be ran against each interface within the port channel group **
+interface [[interface-name]]
+ channel-group [[port-channel-id]] mode on
+ end
+!
+!
+! verify port-channel and operation
+show etherchannel [[port-channel-id]] detail
+show etherchannel summary
+!

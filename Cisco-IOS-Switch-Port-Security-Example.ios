@@ -1,0 +1,8 @@
+!
+errdisable recovery cause psecure-violation
+errdisable recovery interval 60
+!
+interface [[interface-id]]
+ switchport mode access
+ switchport port-security
+!

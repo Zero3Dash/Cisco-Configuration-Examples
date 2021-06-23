@@ -24,3 +24,5 @@ dhcpd option 3 ip [[GATEWAY-IP-ADDRESS]] interface [[INTERFACE-NAME]]
 !-- this is the final step to enable DHCP on responsed on the interface
 dhcpd enable [[INTERFACE-NAME]]
 !
+dhcpd reserve-address [[dhcp-reserve-address]] [[dhcp-reserve-mac-address]] [[INTERFACE-NAME]]
+!

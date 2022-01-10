@@ -8,8 +8,8 @@
 !-------------------------------------------------- 
 !--- Access-list defining SNMPv3 servers. 
 ip access-list standard permit-snmp-v3 
-permit [[ROUTER-SNMP-SERVER-1]]
-permit [[ROUTER-SNMP-SERVER-2]]
+permit [[SNMP-SERVER-1]]
+permit [[SNMP-SERVER-2]]
 deny any log 
 !
 !--- Group creation with read-only privileges. 
@@ -20,16 +20,16 @@ snmp-server user monitoring-server1 gp-snmp.monitoring v3 auth sha [[ROUTER-AUTH
 snmp-server user monitoring-server2 gp-snmp.monitoring v3 auth sha [[ROUTER-AUTH-PASSWORD]] priv aes 128 [[ROUTER-PRIV-PASSWORD]]
 !
 !--- Enable SNMP Traps to the relevant servers 
-snmp-server host [[ROUTER-SNMP-SERVER-1]] version 3 priv monitoring-server1 
-snmp-server host [[ROUTER-SNMP-SERVER-2]] version 3 priv monitoring-server2 
+snmp-server host [[SNMP-SERVER-1]] version 3 priv monitoring-server1 
+snmp-server host [[SNMP-SERVER-2]] version 3 priv monitoring-server2 
 !
 !-------------------------------------------------- 
 ! IOS Switch 
 !-------------------------------------------------- 
 !--- Access-list defining SNMPv3 servers. 
 ip access-list standard permit-snmp-v3 
-permit [[SWITCH-SNMP-SERVER-1]]
-permit [[SWITCH-SNMP-SERVER-2]]
+permit [[SNMP-SERVER-1]]
+permit [[SNMP-SERVER-2]]
 deny any log 
 !  
 !--- Group creation with read-only privileges. 
@@ -40,8 +40,8 @@ snmp-server user monitoring-server1 gp-snmp.monitoring v3 auth sha [[SWITCH-AUTH
 snmp-server user monitoring-server2 gp-snmp.monitoring v3 auth sha [[SWITCH-AUTH-PASSWORD]] priv aes 128 [[SWITCH-PRIV-PASSWORD]]
 !
 !--- Enable SNMP Traps to the relevant servers 
-snmp-server host [[SWITCH-SNMP-SERVER-1]] version 3 priv monitoring-server1 
-snmp-server host [[SWITCH-SNMP-SERVER-2]] version 3 priv monitoring-server2
+snmp-server host [[SNMP-SERVER-1]] version 3 priv monitoring-server1 
+snmp-server host [[SNMP-SERVER-2]] version 3 priv monitoring-server2
 !
 !-------------------------------------------------- 
 ! NXOS 
@@ -68,8 +68,8 @@ snmp-server user monitoring-server1 gp-snmp.monitoring v3 auth sha [[ASA-AUTH-PA
 snmp-server user monitoring-server2 gp-snmp.monitoring v3 auth sha [[ASA-AUTH-PASSWORD]] priv aes 128 [[ASA-PRIV-PASSWORD]] 
 !
 !--- Specify SNMPv3 server source interface. 
-snmp-server host [[ASA-SNMP-INTERFACE-NAME]] [[ASA-SNMP-SERVER-1]] version 3 monitoring-server1 
-snmp-server host [[ASA-SNMP-INTERFACE-NAME]] [[ASA-SNMP-SERVER-2]] version 3 monitoring-server2 
+snmp-server host [[ASA-SNMP-INTERFACE-NAME]] [[SNMP-SERVER-1]] version 3 monitoring-server1 
+snmp-server host [[ASA-SNMP-INTERFACE-NAME]] [[SNMP-SERVER-2]] version 3 monitoring-server2 
 !
 !-------------------------------------------------- 
 ! WLC (AireOS)

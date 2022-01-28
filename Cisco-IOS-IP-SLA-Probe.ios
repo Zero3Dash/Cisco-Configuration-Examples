@@ -10,3 +10,5 @@ track 1 ip sla 1 reachability
 !
 ip route [[network-ip]] [[subnet-mask]] [[next-hop-ip]] track 1
 !
+ip route [[float-network-ip]] [[float-subnet-mask]] [[float-next-hop-ip]] [[ad-metric]]
+!

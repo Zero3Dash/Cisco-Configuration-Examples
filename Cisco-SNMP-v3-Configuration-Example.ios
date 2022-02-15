@@ -1,6 +1,8 @@
 
+! 4PEG Configuration Template
+! http://4peg.com/PlpjFzLtMmn3
 !--------------------------------------------------------------------------
-! Cisco NXOS RADUIS Configuration Example with Local Failback
+! Cisco SNMP v3 Configuration Examples
 !--------------------------------------------------------------------------
 !
 !-------------------------------------------------- 

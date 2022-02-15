@@ -1,5 +1,7 @@
+! 4PEG Configuration Template
+! http://4peg.com/TDSqW1D0qNwK
 !------------------------------------------
-! IOS TACACS Authentication Settings
+! Cisco IOS TACACS Authentication Settings
 !------------------------------------------
 !
 username [[Local User]] secret [[Local Password]]

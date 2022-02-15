@@ -1,5 +1,7 @@
+! 4PEG Configuration Template
+! http://4peg.com/qKSTcDgpSGdF
 !--------------------------------------------------------------------------
-! Cisco Switch Assessment Commands v1
+! Cisco IOS Switch Assessment Commands v1
 !--------------------------------------------------------------------------
 !
 !-- General
@@ -33,6 +35,7 @@ show stackwise-virtual dual-active-detection
 !
 !-- Layer 3
 show ip int brief
+show ip int brief | exc unass
 show standby brief 
 show standby
 show ip route

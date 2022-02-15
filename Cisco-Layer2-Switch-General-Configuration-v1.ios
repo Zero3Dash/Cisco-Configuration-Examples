@@ -1,3 +1,8 @@
+! 4PEG Configuration Template
+! http://4peg.com/D38wB80pNWLx
+!-------------------------------------------------------
+! Cisco Layer2 Switch General Configuration v1
+!-------------------------------------------------------
 !---General switch configuration
 !
 service nagle
@@ -118,6 +123,9 @@ UNAUTHORISED USE OF THIS SYSTEM AND ANY OTHER CRIMINAL CONDUCT REVEALED BY SUCH 
 SUBJECT TO DISCLOSURE TO LAW ENFORCEMENT OFFICIALS AND PROSECUTION TO THE FULL EXTENT
 OF THE LAW. UNAUTHORISED ACCESS IS A VIOLATION OF CIVIL AND CRIMINAL LAWS.^C
 !
+no ip http server 
+no ip https server 
+!
 !---Console and VTY line configuration
 line vty 0 15
  exec
@@ -126,7 +134,8 @@ line vty 0 15
  transport input ssh
 !
 !---Time settings
-clock timezone GMT 0 0
-clock summer-time BST recurring last Sun Mar 1:00 last Sun Oct 1:00
+clock timezone [[TIME-ZONE]]] [[UTC-HOURS-OFFSET]] [[UTC-MINUTES-OFFSET]]
+!---Example below is a Day-Light Saving Time adjust configuration
+clock summer-time [[DST-TIME-ZONE]]] recurring last Sun Mar 1:00 last Sun Oct 1:00
 ntp server [[NTP-TIME-SOURCE]]
 !

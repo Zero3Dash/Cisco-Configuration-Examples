@@ -1,6 +1,12 @@
+! 4PEG Configuration Template
+! http://4peg.com/SQ8w7xcNJHxN
 !-------------------------------------------------------
 ! Cisco IOS Switch Port Channel Configuration Example
 !-------------------------------------------------------
+! ** first configure you required port-channel **
+interface port-channel [[port-channel-id]]
+! ### INSERT YOU SWITCHPORT MODE, VLANS and other configuration here ###
+ end
 !
 ! Link Aggregation Control Protocol (LACP)
 ! Supported Configurations:

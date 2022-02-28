@@ -1,0 +1,84 @@
+! 4PEG Configuration Template
+! 
+!-----------------------------------------------------------------
+! Cisco IOS First-Hop-Redundancy-Protocol Example Configuration
+!-----------------------------------------------------------------
+!
+!-- enable ip routing to allow a device to route
+ip routing
+!
+!-----------------------------------------------------------------
+! HSRP (Hot-standby Routing Protocol)
+!-----------------------------------------------------------------
+!
+!-- HSRP Interface 1
+interface [[interface-id-1]]
+ ip address [[network]].[[interface-ip-1]] [[subnet-mask]]
+ standby [[hsrp-group]] ip [[hsrp-vip]]
+ standby [[hsrp-group]] preempt
+ standby [[hsrp-group]] priority [[interface-1-priority]]
+ !-- Tracking State
+ !..add the required interfaces as needed, 2 as an example
+ standby [[hsrp-group]] track [[tracked-interface-1a]] [[decremt-value]]
+ standby [[hsrp-group]] track [[tracked-interface-1b]] [[decremt-value]]
+ !--Authentication
+ standby [[hsrp-group]] authentication [[hsrp-pass]]
+!
+!-- HSRP Interface 2
+interface [[interface-id-2]]
+ ip address [[network]].[[interface-ip-2]] [[subnet-mask]]
+ standby [[hsrp-group]] ip [[hsrp-vip]]
+ standby [[hsrp-group]] preempt
+ standby [[hsrp-group]] priority [[interface-2-priority]]
+ !-- Tracking State
+ !..add the required interfaces as needed, 2 as an example
+ standby [[hsrp-group]] track [[tracked-interface-2a]] [[decremt-value]]
+ standby [[hsrp-group]] track [[tracked-interface-2b]] [[decremt-value]]
+ !--Authentication
+ standby [[hsrp-group]] authentication [[hsrp-pass]]
+!
+!--debug commands
+show standby
+show standby brief
+!
+!-----------------------------------------------------------------
+! VRRP (Virtual Router Redundancy Protocol)
+!-----------------------------------------------------------------
+!
+!-- Tracking Interface State
+track [[track-id-1]] interface [[tracked-interface-1]] line-protocol
+!
+!-- VRRP Interface 1
+interface [[interface-id-1]]
+ ip address [[network]].[[interface-ip-1]] [[subnet-mask]]
+ vrrp [[vrrp-group]] ip [[vrrp-vip]]
+ vrrp [[vrrp-group]] preempt
+ vrrp [[vrrp-group]] priority [[interface-1-priority]]
+ !-- Tracking State
+ !..add the required interfaces as needed, 1 as an example
+ vrrp [[vrrp-group]] track [[track-id-1]] decremt [[decremt-value]]
+  !--Authentication
+ vrrp [[vrrp-group]] authentication [[vrrp-pass]]
+!
+!-- Tracking Interface State
+track [[track-id-2]] interface [[tracked-interface-2]] line-protocol
+!
+!-- VRRP Interface 2
+interface [[interface-id-2]]
+ ip address [[network]].[[interface-ip-2]] [[subnet-mask]]
+ vrrp [[vrrp-group]] ip [[vrrp-vip]]
+ vrrp [[vrrp-group]] preempt
+ vrrp [[vrrp-group]] priority [[interface-2-priority]]
+ !-- Tracking State
+ !..add the required interfaces as needed, 1 as an example
+ vrrp [[vrrp-group]] track [[tracked-interface-2]] [[decremt-value]]
+ !--Authentication
+ vrrp [[vrrp-group]] authentication [[vrrp-pass]]
+!
+!--debug commands
+show vrrp
+show track
+!
+!-----------------------------------------------------------------
+! GLBP (Global Load-Balancing Protocol)
+!-----------------------------------------------------------------

@@ -49,15 +49,15 @@ show asp table routing
 !
 !-- VPN
 show vpn-sessiondb summary
-show crypto isakmp sa  
-show crypto ipsec sa  
-show crypto engine connections active  
-show crypto map  
-show crypto session  
+show crypto isakmp sa
+show crypto ipsec sa
+show crypto engine connections active
+show crypto map
+show crypto session
 show interface tunnel [[interface-id]]
-show crypto ikev2 sa  
-show crypto ikev2 session  
-show crypto ikev2 stats  
+show crypto ikev2 sa
+show crypto ikev2 session
+show crypto ikev2 stats
 !
 !-- Certificates
 show crypto ca trustpoints

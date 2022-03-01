@@ -34,7 +34,7 @@ match address [[router1-vpn-acl-name]]
 exit
 !
 interface GigabitEthernet0/0
-crypto map [[router1-crypto-map-name]]
+ crypto map [[router1-crypto-map-name]]
 exit
 !
 access-list [[router1-extended-acl-number]] deny ip [[router1-local-network-ip]] [[router1-local-wildcard-subnet]] [[router2-local-network-ip]] [[router2-local-wildcard-subnet]]

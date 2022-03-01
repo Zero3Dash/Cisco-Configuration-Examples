@@ -8,7 +8,7 @@
 ip routing
 !
 !-----------------------------------------------------------------
-! HSRP (Hot-standby Routing Protocol)
+! HSRP (Hot-Standby Routing Protocol)
 !-----------------------------------------------------------------
 !
 !-- HSRP Interface 1

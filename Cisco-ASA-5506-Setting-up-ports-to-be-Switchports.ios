@@ -5,6 +5,8 @@
 ! Single Internet/WAN facing internet
 ! Create BVI to internal virtual interface
 ! All other ports to be configured as layer 2 switchports
+! You can have up to 7 BVI in this configuration, but properly not
+! recommended
 !--------------------------------------------------------------------------
 !
 interface GigabitEthernet1/1 

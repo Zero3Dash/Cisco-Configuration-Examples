@@ -39,7 +39,11 @@ interface [[interface-id-2]]
 !
 !--debug commands
 show standby
+show standby all
 show standby brief
+show standby neighbors
+show track
+show track brief
 !
 !-----------------------------------------------------------------
 ! VRRP (Virtual Router Redundancy Protocol)
@@ -77,8 +81,47 @@ interface [[interface-id-2]]
 !
 !--debug commands
 show vrrp
+show vrrp all
+show vrrp brief
+show vrrp interface [[interface-id]]
 show track
+show track brief
 !
 !-----------------------------------------------------------------
-! GLBP (Global Load-Balancing Protocol)
+! GLBP (Gateway Load-Balancing Protocol)
 !-----------------------------------------------------------------
+!
+!-- GLBP Interface 1
+interface [[interface-id-1]]
+ ip address ip address [[network]].[[interface-ip-1]] [[subnet-mask]]
+ glbp [[glbp-group]] ip [[glbp-vip]]
+ glbp [[glbp-group]] load-balancing [[host-dependent|round-robin|weighted]]
+ !--If you need to apply and GLBP weighting metric
+ glbp [[glbp-group]] weighting [[interface-1-weighting]]
+ !--Active Virtual Gateway Preempt
+ glbp [[glbp-group]] preempt
+ !--Active Virtual Forward Preempt (enabled by default)
+ glbp [[glbp-group]] forwarder preempt
+ glbp [[glbp-group]] priority [[interface-1-priority]]
+!
+!-- GLBP Interface 2
+interface [[interface-id-2]]
+ ip address ip address [[network]].[[interface-ip-2]] [[subnet-mask]]
+ glbp [[glbp-group]] ip [[glbp-vip]]
+ glbp [[glbp-group]] load-balancing [[host-dependent|round-robin|weighted]]
+ !--If you need to apply and GLBP weighting metric
+ glbp [[glbp-group]] weighting [[interface-2-weighting]]
+ !--Active Virtual Gateway Preempt
+ glbp [[glbp-group]] preempt
+ !--Active Virtual Forward Preempt (enabled by default)
+ glbp [[glbp-group]] forwarder preempt
+ glbp [[glbp-group]] priority [[interface-2-priority]]
+!
+!-- GLBP Interface 3 & 4
+!-- up to 4 GLBP nodes can be configured
+!
+!--debug commands
+show glbp
+show glbp detail
+show glbp brief
+!

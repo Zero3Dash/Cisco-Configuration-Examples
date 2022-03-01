@@ -12,7 +12,7 @@ show spanning-tree mst
 show spanning-tree mst configuration
 !
 !--summary of instance on a per-interface level
-show spanning-tree mst interface gigabitethernet [[x/x/x]]
+show spanning-tree mst interface [[interface-id]]
 !
 !--configure mst
 spanning-tree mst configuration
@@ -35,7 +35,7 @@ spanning-tree mst [[mst-instance]] root [[primary|secondary]]
 spanning-tree mst [[mst-instance]] priority [[mst-priority-number]]
 !
 !--modify port cost
-interface gigabitethernet [[x/x/x]]
+interface [[interface-id]]
  spanning-tree mst [[mst-instance]] cost [[cost-value]]
 !--or...
  spanning-tree mst [[mst-instance]] port-priority [[port-priority-number]]

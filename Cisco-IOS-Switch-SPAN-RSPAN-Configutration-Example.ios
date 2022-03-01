@@ -1,0 +1,9 @@
+! 4PEG Configuration Template
+! 
+!-------------------------------------------------------
+! Cisco IOS Switch SPAN RSPAN Configutration Example
+!-------------------------------------------------------
+!--SPAN
+monitor session [[span-id]] source interface [[source-interface]] [[rx|]]
+monitor session [[span-id]] filter [[filter-interface]]
+monitor session [[span-id]] destination interface [[destination-interface]]

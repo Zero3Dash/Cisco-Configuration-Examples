@@ -42,10 +42,23 @@ monitor session [[span-id]] source interface [[vlan-1]],[[vlan-2]],vlan-3]],[[et
 !--Single interface only, no EtherChannels
 monitor session [[span-id]] destination interface [[destination-interface]]
 !
-
-
-monitor session [[span-id]] filter [[filter-interface]]
+!-------------------------------------------------------
+! VLAN Filtering
+!-------------------------------------------------------
+!
+!--Interface must be a trunk interface or EtherChannel
+monitor session [[span-id]] source interface [[source-interface]] [[rx|tx|both]]
+!
+!--Filter on the VLAN Traffic you want to monitor
+!--You can filter any number of VLANs
+monitor session [[span-id]] filter vlan [[vlan-id]]
+!
+!--SPAN Destination Traffic
+!--Single interface only, no EtherChannels
+monitor session [[span-id]] destination interface [[destination-interface]]
+!
 !
 !--Debug Commands
 show monitor session [[span-id]]
 show monitor session all
+!

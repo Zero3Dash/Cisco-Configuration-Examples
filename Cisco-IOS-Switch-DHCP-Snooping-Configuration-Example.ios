@@ -26,6 +26,10 @@ show ip dhcp snooping
 show ip dhcp snooping binding
 show ip dhcp snooping database
 !
+!--------------------------------------------------------------------------
+! Cisco IOS Switch IP Soruce Guard Configuration Example
+!--------------------------------------------------------------------------
+!
 !--configure IP Souce Guard on ports
 interface [[interface-id or interface-range]]
  ip verify source
@@ -36,4 +40,11 @@ ip source binding [[verified-mac-address]] vlan [[vlan-id]] [[verified-ip-addres
 !--troubleshooting
 show ip verify source
 show ip source binding
+!
+!--------------------------------------------------------------------------
+! Cisco IOS Switch Dynamic ARP Inspection Configuration Example
+!--------------------------------------------------------------------------
+!
+!--enable dynamic arp inspection
+ip arp inspection [[vlan-id or ranges-of-vlans]]
 !

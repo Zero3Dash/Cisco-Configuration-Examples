@@ -4,9 +4,11 @@
 ! Cisco IOS TACACS Authentication Settings
 !------------------------------------------
 !
-username [[Local User]] secret [[Local Password]]
+service password-encryption
 !
-enable secret [[Enable Secret]]
+username [[local-username]] secret [[local-password]]
+!
+enable secret [[enable-secret]]
 !
 aaa new-model
 !
@@ -16,10 +18,8 @@ aaa accounting exec default start-stop group tacacs+
 aaa accounting commands 15 default start-stop group tacacs+
 aaa accounting network default start-stop group tacacs+
 !
-tacacs server [[TACACs Server Name]]
- address ipv4 [[TACACs Server IP]]
- key [[TACACs Key]]
+tacacs server [[tacacs+-server-name]]
+ address ipv4 [[tacacs+-server-ip]]
+ key [[tacacs+-pre-shared-key]]
  timeout 3
-!
-service password-encryption
 !

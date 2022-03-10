@@ -34,15 +34,17 @@ permit [[SNMP-SERVER-2]]
 deny any log 
 !  
 !--- Group creation with read-only privileges. 
-snmp-server group gp-snmp.monitoring v3 priv read RO access permit-snmp-v3 
+snmp-server group gp-snmp.monitoring v3 priv read snmp.ro access permit-snmp-v3
+!
+!--- Create view for read only access
+snmp-server view snmp.ro iso included
 !  
 !--- User creation with relevant priv and auth protocols. 
-snmp-server user monitoring-server1 gp-snmp.monitoring v3 auth sha [[SWITCH-AUTH-PASSWORD]] priv aes 128 [[SWITCH-PRIV-PASSWORD]]
-snmp-server user monitoring-server2 gp-snmp.monitoring v3 auth sha [[SWITCH-AUTH-PASSWORD]] priv aes 128 [[SWITCH-PRIV-PASSWORD]]
+snmp-server user [[snmp-ro-user]] gp-snmp.monitoring v3 auth sha [[SWITCH-AUTH-PASSWORD]] priv aes 128 [[SWITCH-PRIV-PASSWORD]]
 !
 !--- Enable SNMP Traps to the relevant servers 
-snmp-server host [[SNMP-SERVER-1]] version 3 priv monitoring-server1 
-snmp-server host [[SNMP-SERVER-2]] version 3 priv monitoring-server2
+snmp-server host [[SNMP-SERVER-1]] version 3 priv [[snmp-ro-user]]
+snmp-server host [[SNMP-SERVER-2]] version 3 priv [[snmp-ro-user]]
 !
 !-------------------------------------------------- 
 ! NXOS 

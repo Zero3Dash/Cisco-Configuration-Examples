@@ -34,4 +34,9 @@ line con 0
 !
 line vty 0 15
  login authentication AAA_RADIUS
+ transport input ssh
+!
+!--troubleshooting commands
+show radius server-group radius
+show aaa method-list authentication
 !

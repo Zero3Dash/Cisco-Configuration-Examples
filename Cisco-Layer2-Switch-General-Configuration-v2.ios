@@ -15,7 +15,9 @@ logging buffered 1024000 debugging
 enable secret [[ENABLE-PASSWORD]]
 ! 
 username [[DEVICE-USERNAME]] privilege 15 password [[DEVICE-PASSWORD]]
-aaa new-model 
+aaa new-model
+aaa authentication login default local
+aaa authorization exec default local
 ! 
 aaa session-id common 
 clock timezone GMT 0 

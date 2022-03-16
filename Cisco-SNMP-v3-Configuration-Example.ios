@@ -8,7 +8,7 @@
 ! IOS Route 
 !-------------------------------------------------- 
 !--- Access-list defining SNMPv3 servers. 
-ip access-list standard acl.permit-snmp-v3
+ip access-list standard [[SNMP-ACL-NAME]]
 permit [[SNMP-SERVER-1]]
 permit [[SNMP-SERVER-2]]
 deny any log 
@@ -17,23 +17,28 @@ deny any log
 snmp-server ifindex persist
 !
 !--- Group creation with read-only privileges. 
-snmp-server group [[SNMP-GROUP-NAME]] v3 priv read [[SNMP-VIEW-NAME]] access acl.permit-snmp-v3
+snmp-server group [[SNMP-GROUP-NAME]] v3 priv read [[SNMP-VIEW-NAME]] access [[SNMP-ACL-NAME]]
 !
 !--- Create view for read only access
 snmp-server view [[SNMP-VIEW-NAME]] iso included
 !
 !--- User creation with relevant priv and auth protocols. 
-snmp-server user [[SNMP-USER]] [[SNMP-GROUP-NAME]] v3 auth sha [[ROUTER-AUTH-PASSWORD]] priv aes 128 [[ROUTER-PRIV-PASSWORD]]
+snmp-server user [[SNMP-USER]] [[SNMP-GROUP-NAME]] v3 auth sha [[ROUTER-AUTH-PASSWORD]] priv aes 128 [[ROUTER-PRIV-PASSWORD]] access [[SNMP-ACL-NAME]]
 !
 !--- Enable SNMP Traps to the relevant servers 
-snmp-server host [[SNMP-SERVER-1]] version 3 priv [[SNMP-USER]] 
-snmp-server host [[SNMP-SERVER-2]] version 3 priv [[SNMP-USER]] 
+snmp-server host [[SNMP-SERVER-1]] version 3 priv [[SNMP-USER]]
+snmp-server host [[SNMP-SERVER-2]] version 3 priv [[SNMP-USER]]
+!
+!--validate configuration
+show snmp group
+show snmp user [[SNMP-USER]]
+show snmp engineID
 !
 !-------------------------------------------------- 
 ! IOS Switch 
 !-------------------------------------------------- 
 !--- Access-list defining SNMPv3 servers. 
-ip access-list standard acl.permit-snmp-v3
+ip access-list standard [[SNMP-ACL-NAME]]
 permit [[SNMP-SERVER-1]]
 permit [[SNMP-SERVER-2]]
 deny any log 
@@ -42,17 +47,22 @@ deny any log
 snmp-server ifindex persist
 !
 !--- Group creation with read-only privileges. 
-snmp-server group [[SNMP-GROUP-NAME]] v3 priv read [[SNMP-VIEW-NAME]] access acl.permit-snmp-v3
+snmp-server group [[SNMP-GROUP-NAME]] v3 priv read [[SNMP-VIEW-NAME]] access [[SNMP-ACL-NAME]]
 !
 !--- Create view for read only access
 snmp-server view [[SNMP-VIEW-NAME]] iso included
 !  
 !--- User creation with relevant priv and auth protocols. 
-snmp-server user [[SNMP-USER]] [[SNMP-GROUP-NAME]] v3 auth sha [[SWITCH-AUTH-PASSWORD]] priv aes 128 [[SWITCH-PRIV-PASSWORD]]
+snmp-server user [[SNMP-USER]] [[SNMP-GROUP-NAME]] v3 auth sha [[SWITCH-AUTH-PASSWORD]] priv aes 128 [[SWITCH-PRIV-PASSWORD]] access [[SNMP-ACL-NAME]]
 !
 !--- Enable SNMP Traps to the relevant servers 
 snmp-server host [[SNMP-SERVER-1]] version 3 priv [[SNMP-USER]]
 snmp-server host [[SNMP-SERVER-2]] version 3 priv [[SNMP-USER]]
+!
+!--validate configuration
+show snmp group
+show snmp user [[SNMP-USER]]
+show snmp engineID
 !
 !-------------------------------------------------- 
 ! NXOS 

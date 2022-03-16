@@ -23,12 +23,11 @@ snmp-server group [[SNMP-GROUP-NAME]] v3 priv read [[SNMP-VIEW-NAME]] access acl
 snmp-server view [[SNMP-VIEW-NAME]] iso included
 !
 !--- User creation with relevant priv and auth protocols. 
-snmp-server user [[SNMP-USER1]] [[SNMP-GROUP-NAME]] v3 auth sha [[ROUTER-AUTH-PASSWORD]] priv aes 128 [[ROUTER-PRIV-PASSWORD]]
-snmp-server user [[SNMP-USER2]] [[SNMP-GROUP-NAME]] v3 auth sha [[ROUTER-AUTH-PASSWORD]] priv aes 128 [[ROUTER-PRIV-PASSWORD]]
+snmp-server user [[SNMP-USER]] [[SNMP-GROUP-NAME]] v3 auth sha [[ROUTER-AUTH-PASSWORD]] priv aes 128 [[ROUTER-PRIV-PASSWORD]]
 !
 !--- Enable SNMP Traps to the relevant servers 
-snmp-server host [[SNMP-SERVER-1]] version 3 priv [[SNMP-USER1]] 
-snmp-server host [[SNMP-SERVER-2]] version 3 priv [[SNMP-USER2]] 
+snmp-server host [[SNMP-SERVER-1]] version 3 priv [[SNMP-USER]] 
+snmp-server host [[SNMP-SERVER-2]] version 3 priv [[SNMP-USER]] 
 !
 !-------------------------------------------------- 
 ! IOS Switch 
@@ -49,26 +48,23 @@ snmp-server group [[SNMP-GROUP-NAME]] v3 priv read [[SNMP-VIEW-NAME]] access acl
 snmp-server view [[SNMP-VIEW-NAME]] iso included
 !  
 !--- User creation with relevant priv and auth protocols. 
-snmp-server user [[SNMP-USER1]] gp-snmp.monitoring v3 auth sha [[SWITCH-AUTH-PASSWORD]] priv aes 128 [[SWITCH-PRIV-PASSWORD]]
-snmp-server user [[SNMP-USER2]] gp-snmp.monitoring v3 auth sha [[SWITCH-AUTH-PASSWORD]] priv aes 128 [[SWITCH-PRIV-PASSWORD]]
+snmp-server user [[SNMP-USER]] [[SNMP-GROUP-NAME]] v3 auth sha [[SWITCH-AUTH-PASSWORD]] priv aes 128 [[SWITCH-PRIV-PASSWORD]]
 !
 !--- Enable SNMP Traps to the relevant servers 
-snmp-server host [[SNMP-SERVER-1]] version 3 priv [[SNMP-USER1]]
-snmp-server host [[SNMP-SERVER-2]] version 3 priv [[SNMP-USER2]]
+snmp-server host [[SNMP-SERVER-1]] version 3 priv [[SNMP-USER]]
+snmp-server host [[SNMP-SERVER-2]] version 3 priv [[SNMP-USER]]
 !
 !-------------------------------------------------- 
 ! NXOS 
 !-------------------------------------------------- 
 !--- User creation with relevant priv and auth protocols. 
-snmp-server user [[SNMP-USER1]] auth sha [[NXOS-AUTH-PASSWORD]] priv aes-128 [[NXOS-PRIV-PASSWORD]]
-snmp-server user [[SNMP-USER2]] auth sha [[NXOS-AUTH-PASSWORD]] priv aes-128 [[NXOS-PRIV-PASSWORD]]
+snmp-server user [[SNMP-USER]] auth sha [[NXOS-AUTH-PASSWORD]] priv aes-128 [[NXOS-PRIV-PASSWORD]]
 !
 !--- Enable native SNMPv3 agent to conduct auth and priv for new users. 
 snmp-server globalEnforcePriv 
 !
 !-- Apply read-only priviliges to the Users 
-snmp-server user [[SNMP-USER1]] network-operator 
-snmp-server user [[SNMP-USER2]] network-operator 
+snmp-server user [[SNMP-USER]] network-operator 
 !
 !-------------------------------------------------- 
 ! ASA 
@@ -77,12 +73,11 @@ snmp-server user [[SNMP-USER2]] network-operator
 snmp-server group gp-snmp.monitoring v3 priv 
 !
 !--- User creation with relevant priv and auth protocols. 
-snmp-server user [[SNMP-USER1]] gp-snmp.monitoring v3 auth sha [[ASA-AUTH-PASSWORD]] priv aes 128 [[ASA-PRIV-PASSWORD]] 
-snmp-server user [[SNMP-USER2]] gp-snmp.monitoring v3 auth sha [[ASA-AUTH-PASSWORD]] priv aes 128 [[ASA-PRIV-PASSWORD]] 
+snmp-server user [[SNMP-USER]] [[SNMP-GROUP-NAME]] v3 auth sha [[ASA-AUTH-PASSWORD]] priv aes 128 [[ASA-PRIV-PASSWORD]] 
 !
 !--- Specify SNMPv3 server source interface. 
-snmp-server host [[ASA-SNMP-INTERFACE-NAME]] [[SNMP-SERVER-1]] version 3 [[SNMP-USER1]] 
-snmp-server host [[ASA-SNMP-INTERFACE-NAME]] [[SNMP-SERVER-2]] version 3 [[SNMP-USER2]] 
+snmp-server host [[ASA-SNMP-INTERFACE-NAME]] [[SNMP-SERVER-1]] version 3 [[SNMP-USER]] 
+snmp-server host [[ASA-SNMP-INTERFACE-NAME]] [[SNMP-SERVER-2]] version 3 [[SNMP-USER]] 
 !
 !-------------------------------------------------- 
 ! WLC (AireOS)
@@ -92,13 +87,13 @@ Name:  WLC
 SNMP v3 Mode: Enable 
 
 !---Select SNMPv3 users > new 
-User Profile Name:  [[SNMP-USER1]]
+User Profile Name:  [[SNMP-USER]]
 Access Mode:  Read Only 
 Authentication Protocol:  HMAC-SHA 
 Auth Password:  [[WLC-AUTH-PASSWORD]]
 Privay Protocol:  CFB-AES-128 
 Priv Password:  [[WLC-PRIV-PASSWORD]]
-User Profile Name:  [[SNMP-USER2]]
+User Profile Name:  [[SNMP-USER]]
 Access Mode:  Read Only 
 Authentication Protocol:  HMAC-SHA 
 Auth Password:  [[WLC-AUTH-PASSWORD]]

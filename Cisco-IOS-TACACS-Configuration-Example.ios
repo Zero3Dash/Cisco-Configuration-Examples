@@ -28,4 +28,5 @@ aaa authorization exec default group tacacs+ if-authenticated
 aaa accounting exec default start-stop group tacacs+
 aaa accounting commands 15 default start-stop group tacacs+
 aaa accounting network default start-stop group tacacs+
+aaa sesson-id common
 !

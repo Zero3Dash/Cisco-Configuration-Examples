@@ -4,7 +4,7 @@
 ! Cisco IOS Basic Read Only Local Account (IOS 15+)
 !-----------------------------------------------------------------
 !
-!--
+!--configure user mode to support views
 aaa new-model 
 aaa authentication login default local
 aaa authentication enable default enable

@@ -22,7 +22,7 @@ interface [[interface-id-1]]
  standby [[hsrp-group]] track [[tracked-interface-1a]] [[decremt-value]]
  standby [[hsrp-group]] track [[tracked-interface-1b]] [[decremt-value]]
  !--Authentication
- standby [[hsrp-group]] authentication [[hsrp-pass]]
+ standby [[hsrp-group]] authentication md5 key-string [[hsrp-pass]]
 !
 !-- HSRP Interface 2
 interface [[interface-id-2]]
@@ -35,7 +35,7 @@ interface [[interface-id-2]]
  standby [[hsrp-group]] track [[tracked-interface-2a]] [[decremt-value]]
  standby [[hsrp-group]] track [[tracked-interface-2b]] [[decremt-value]]
  !--Authentication
- standby [[hsrp-group]] authentication [[hsrp-pass]]
+ standby [[hsrp-group]] authentication md5 key-string [[hsrp-pass]]
 !
 !--debug commands
 show standby
@@ -103,6 +103,8 @@ interface [[interface-id-1]]
  !--Active Virtual Forward Preempt (enabled by default)
  glbp [[glbp-group]] forwarder preempt
  glbp [[glbp-group]] priority [[interface-1-priority]]
+ !--Authentication
+ glbp [[glbp-group]] authentication md5 key-string [[glbp-pass]]
 !
 !-- GLBP Interface 2
 interface [[interface-id-2]]
@@ -116,6 +118,8 @@ interface [[interface-id-2]]
  !--Active Virtual Forward Preempt (enabled by default)
  glbp [[glbp-group]] forwarder preempt
  glbp [[glbp-group]] priority [[interface-2-priority]]
+ !--Authentication
+ glbp [[glbp-group]] authentication md5 key-string [[glbp-pass]]
 !
 !-- GLBP Interface 3 & 4
 !-- up to 4 GLBP nodes can be configured

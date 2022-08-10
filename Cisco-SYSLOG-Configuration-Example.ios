@@ -1,0 +1,26 @@
+!--turn logging on
+logging on
+!
+!--configure logs to use time stamps
+service timestamps debug datetime msec
+service timestamps log datetime msec
+!
+!--configure logging buffer size
+logging buffered 102400
+!
+!--level of alerts to present
+logging buffered informational
+logging console informational
+logging monitor informational
+logging trap informational
+!logging facility local6
+!
+!--show origin if alert to be device name
+logging origin-id hostname
+!
+!--where to send the alert
+logging host [[logging-host-ip]]
+!
+!---test command
+send log [[alert-level]] "THIS IS A TEST ALERT"
+!

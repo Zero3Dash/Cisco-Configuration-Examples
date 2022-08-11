@@ -1,5 +1,5 @@
 !---------------------------------------------------
-! SYSLOG Configuration Example is IOS/IOS-EX/IOS-XR
+! SYSLOG Configuration Example for IOS
 !---------------------------------------------------
 !
 !--turn logging on
@@ -14,7 +14,7 @@ logging buffered 102400
 !
 !--level of alerts to present
 logging buffered informational
-logging console informational
+logging console critical
 logging monitor informational
 logging trap informational
 !
@@ -37,7 +37,7 @@ show logging
 show logging history
 !
 !---------------------------------------------------
-! SYSLOG Configuration Example is NX-OS
+! SYSLOG Configuration Example for NX-OS
 !---------------------------------------------------
 !
 !--configure logs to use time stamps
@@ -51,7 +51,7 @@ logging monitor 6
 logging origin-id hostname
 !
 !--where to send the alert
-logging server [[logging-host-ip]] use-vrf [[vrf-name]]
+logging server 10.220.5.36 use-vrf it
 !
 !--configure a sending interface, if necessary
 logging source-interface vlan [[vlan-id]]

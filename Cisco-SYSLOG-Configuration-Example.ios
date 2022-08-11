@@ -30,6 +30,12 @@ logging source-interface vlan [[vlan-id]]
 !---test command
 send log [[alert-level]] "THIS IS A TEST ALERT"
 !
+!--displays the syslog server configuration and full log
+show logging
+!
+!--show the contents of syslog history table
+show logging history
+!
 !---------------------------------------------------
 ! SYSLOG Configuration Example is NX-OS
 !---------------------------------------------------
@@ -37,13 +43,9 @@ send log [[alert-level]] "THIS IS A TEST ALERT"
 !--configure logs to use time stamps
 logging timestamp milliseconds
 !
-!--configure logging buffer size
-logging buffered 102400
-!
 !--level of alerts to present
-logging console 6
+logging console 2
 logging monitor 6
-
 !
 !--show origin if alert to be device name
 logging origin-id hostname

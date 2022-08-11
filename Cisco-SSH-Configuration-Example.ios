@@ -1,6 +1,6 @@
 !---------------------------------------------------
 ! SSH Configuration Example
-!---------------------------------------------------!
+!---------------------------------------------------
 !--device name and domain require for cert name
 hostname [[device-name]]
 ip domain name [[domain-name]]

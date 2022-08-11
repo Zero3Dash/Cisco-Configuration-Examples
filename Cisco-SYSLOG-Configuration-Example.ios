@@ -1,3 +1,7 @@
+!---------------------------------------------------
+! SYSLOG Configuration Example is IOS/IOS-EX/IOS-XR
+!---------------------------------------------------
+!
 !--turn logging on
 logging on
 !
@@ -13,7 +17,6 @@ logging buffered informational
 logging console informational
 logging monitor informational
 logging trap informational
-!logging facility local6
 !
 !--show origin if alert to be device name
 logging origin-id hostname
@@ -21,6 +24,46 @@ logging origin-id hostname
 !--where to send the alert
 logging host [[logging-host-ip]]
 !
+!--configure a sending interface, if necessary
+logging source-interface vlan [[vlan-id]]
+!
 !---test command
 send log [[alert-level]] "THIS IS A TEST ALERT"
+!
+!---------------------------------------------------
+! SYSLOG Configuration Example is NX-OS
+!---------------------------------------------------
+!
+!--configure logs to use time stamps
+logging timestamp milliseconds
+!
+!--configure logging buffer size
+logging buffered 102400
+!
+!--level of alerts to present
+logging console 6
+logging monitor 6
+
+!
+!--show origin if alert to be device name
+logging origin-id hostname
+!
+!--where to send the alert
+logging server [[logging-host-ip]] use-vrf [[vrf-name]]
+!
+!--configure a sending interface, if necessary
+logging source-interface vlan [[vlan-id]]
+!
+!--sisplays the console & mointor logging configuration
+show logging console
+show logging monitor
+!
+!--displays the logging time-stamp units configured
+show logging timestamp
+!
+!--displays the syslog server configuration
+show logging server
+!
+!--displays the logging configuration.
+show logging info
 !

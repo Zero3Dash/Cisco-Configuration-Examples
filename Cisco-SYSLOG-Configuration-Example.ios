@@ -1,3 +1,13 @@
+!
+0. Emergency
+1. Alert
+2. Critical
+3. Error
+4. Warning
+5. Notice
+6. Informational
+7. Debug
+!
 !---------------------------------------------------
 ! SYSLOG Configuration Example for IOS
 !---------------------------------------------------
@@ -23,6 +33,9 @@ logging origin-id hostname
 !
 !--where to send the alert
 logging host [[logging-host-ip]]
+!
+!-- send logs to a custom location
+logging trap [[ip-address]] transport [[tcp/udp]] port [[port-number]]
 !
 !--configure a sending interface, if necessary
 logging source-interface vlan [[vlan-id]]
@@ -68,4 +81,14 @@ show logging server
 !
 !--displays the logging configuration.
 show logging info
+!
+!
+0. Emergency
+1. Alert
+2. Critical
+3. Error
+4. Warning
+5. Notice
+6. Informational
+7. Debug
 !

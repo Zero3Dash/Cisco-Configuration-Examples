@@ -28,7 +28,7 @@ clock timezone [[timezone-code]] [[tz-hrs]] [[tz-mins]]
 clock summer-time [[dst-timezone-code]] 1 Sunday March 02:00 1 Sunday November 02:00 [[shift-minutes]]
 !
 !--European Daylight Savings Time Change
-clock summer-time [[dst-timezone-code]] 5 Sunday March 01:00 5 Sunday October 01:00 [[shift-minutes]]
+clock summer-time [[dst-timezone-code]] 5 Sunday March 02:00 5 Sunday October 02:00 [[shift-minutes]]
 !
 !--
 copy running-config startup-config

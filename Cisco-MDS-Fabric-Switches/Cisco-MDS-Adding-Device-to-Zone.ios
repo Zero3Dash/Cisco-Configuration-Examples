@@ -41,5 +41,12 @@ exit
 copy run start
 !
 !--validate that the config is active
+show flogi database details
+show zoneset vsan [[vsan-id]]
+show zoneset active vsan [[vsan-id]]
+show vsan [[vsan-id]]
+show fcns database detail vsan [[vsan-id]]
+sh fcns database fcid [[fcid]] detail vsan [[vsan-id]]
+sh interface fc[[interface-id]]
 show zoneset active vsan [[vsan-id]]
 !

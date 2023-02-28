@@ -64,10 +64,15 @@ logging monitor 6
 logging origin-id hostname
 !
 !--where to send the alert
-logging server 10.220.5.36 use-vrf it
+logging server [[syslog-server-ip]] use-vrf [[vrf-id]]
 !
 !--configure a sending interface, if necessary
 logging source-interface vlan [[vlan-id]]
+!
+logging message interface type ethernet description
+logging event trunk-status enable
+logging event link-status enable
+
 !
 !--sisplays the console & mointor logging configuration
 show logging console
@@ -81,6 +86,8 @@ show logging server
 !
 !--displays the logging configuration.
 show logging info
+!
+show logging origin-id
 !
 !
 0. Emergency

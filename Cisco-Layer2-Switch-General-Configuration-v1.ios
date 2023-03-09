@@ -135,7 +135,7 @@ line vty 0 15
 !
 !---Time settings
 clock timezone [[TIME-ZONE]]] [[UTC-HOURS-OFFSET]] [[UTC-MINUTES-OFFSET]]
-!---Example below is a Day-Light Saving Time adjust configuration
+!---Example below is a Day-Light Saving Time adjust configuration for UK/EU
 clock summer-time [[DST-TIME-ZONE]]] recurring last Sun Mar 1:00 last Sun Oct 1:00
 ntp server [[NTP-TIME-SOURCE]]
 !

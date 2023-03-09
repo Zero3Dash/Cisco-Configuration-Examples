@@ -11,9 +11,12 @@ ip access-list extended acl.block-all
 !
 !--create a ntp permit access-list
 ip access-list extended acl.ntp-permit
- 10 permit udp host [[ntp-source-ip-1]] any eq ntp
- 20 permit udp host [[ntp-source-ip-2]] any eq ntp
+ 10 permit udp any host [[ntp-source-ip-1]] eq ntp
+ 20 permit udp any host [[ntp-source-ip-2]] eq ntp
  30 etc...
+ !--or...
+ 40 permit udp any any eq ntp
+ 50 etc...
  90 deny ip any any
 !
 !--implemented ntp access-group controls
